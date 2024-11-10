@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tic tac toy game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body >
+    <div class="conatiner">
+        <h1 style="text-align: center;">TIC TAC TOY GAME</h1>
+      <div class="header">
+        <p id="para">Lets Play!</p>
+
+        <div class="buttonclass">
+            <button  class="btn2" id="btn2"> X player play 0 times</button>
+            <button class="btn3" id="btn3">O player play 0  times</button>
+        </div>
+    
+      </div>
+      <div class="gamelines">
+          <div class="column1">
+            <div id="box-1" onclick="Play(this)"></div>
+            <div id="box-2" onclick="Play(this)"></div>
+            <div id="box-3" onclick="Play(this)"></div>
+          </div>
+          <div class="column2">
+            <div id="box-4" onclick="Play(this)"></div>
+            <div id="box-5" onclick="Play(this)"></div>
+            <div id="box-6" onclick="Play(this)"></div>
+          </div>
+          <div class="column3">
+            <div id="box-7" onclick="Play(this)"></div>
+            <div id="box-8" onclick="Play(this)"></div>
+            <div id="box-9" onclick="Play(this)"></div>
+          </div>
+          <div class="btn"> 
+            <button class="btn1" onclick="restart()">Restart</button>
+          </div>  
+      </div>
+   
+    </div>
+</body>
+<script src="app.js"></script>
+</html>
