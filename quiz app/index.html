@@ -5,58 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+          .box-container {
+            width: 250px;
+            height: 250px;
+            background: conic-gradient(#2664EB 3.6deg, #ededed 0deg);
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .box-container .circle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            width: 190px;
+            height: 190px;
+            border-radius: 50%;
+        }
+    </style>
 </head>
 <body>
     <!-- starting point of quiz app creat a input name email roll number and institute  -->
 
     <div  class="parent w-[100%] h-[100vh] flex justify-center items-center bg-slate-100 px-[10px]">
-        <div class="hidden w-[50%] max-[800px]:w-[100%] border border-gray-100 p-5 rounded-lg bg-white shadow-lg">
+        <div class="details w-[50%] max-[800px]:w-[100%] border border-gray-100 p-5 rounded-lg bg-white shadow-lg">
             <h1 class="text-xl font-semibold text-gray-700 mb-4">Enter Your Personal Details</h1>
             <div class="flex flex-col">
                 <input id="name" type="text" placeholder="Name" class="border-2 border-gray-300 p-2 rounded-md" required>
                 <input id="email" type="email" placeholder="Email" class="border-2 border-gray-300 p-2 rounded-md mt-2" required>
                 <input id="rollno" type="text" placeholder="Roll Number" class="border-2 border-gray-300 p-2 rounded-md mt-2" required>
                 <input id="institute" type="text" placeholder="Institute" class="border-2 border-gray-300 p-2 rounded-md mt-2" required>
-                <button class="bg-blue-500 text-white p-2 rounded-md mt-4">Start Quiz</button>
+                <button class="bg-blue-500 text-white p-2 rounded-md mt-4" onclick="GetValues()">Start Quiz</button>
             </div>
         </div>
 
         <!-- quiz body with personal detals show and quiz start  -->
 
-        <div class="hidden w-[50%] max-[800px]:w-[100%] border border-gray-100 p-5 rounded-lg bg-white shadow-lg">
-            <h1 class="text-xl font-semibold text-gray-700 mb-4">Quiz</h1>
-            <div class="flex flex-wrap">
-                <p class="text-gray-500 mb-2 w-[50%]">Welcome, [Name]!</p>
-                <p class="text-gray-500 mb-2 w-[50%]">Roll Number: [Email]</p>
-                <p class="text-gray-500 mb-2 w-[50%]">Institute: [Roll Number]</p>
-                <p class="text-gray-500 mb-2 w-[50%]">Institute: [Institute]</p>
+        <div class="quiz-app hidden w-[50%] max-[800px]:w-[100%] border border-gray-100 p-5 rounded-lg bg-white shadow-lg">
+            <h1 class="text-xl font-semibold text-gray-700 mb-4 font-bold">Quiz App</h1>
+            <div class="flex flex-wrap name-parent">
+                <p class="show-name text-gray-500 mb-2 w-[50%]">Welcome, [Name]!</p>
+                <p class="show-email text-gray-500 mb-2 w-[50%]">Roll Number: [Email]</p>
+                <p class=" show-roll text-gray-500 mb-2 w-[50%]">Institute: [Roll Number]</p>
+                <p class="show-institute text-gray-500 mb-2 w-[50%]">Institute: [Institute]</p>
             </div>
-            <div class="flex flex-wrap mt-4">
-                <!-- quiz questions here -->
-                 <!-- quiz options here -->
-                 <div class="flex w-[100%] mb-2">
-                     <div class="text-gray-500 border rounded-md w-[100%] px-[10px] py-[6px]">Option 1</div>
-                 </div>
-                 <div class="flex w-[100%] mb-2">
-                     <div class="text-gray-500 border rounded-md w-[100%] px-[10px] py-[6px]">Option 1</div>
-                 </div>
-                 <div class="flex w-[100%] mb-2">
-                     <div class="text-gray-500 border rounded-md w-[100%] px-[10px] py-[6px]">Option 1</div>
-                 </div>
-                 <div class="flex w-[100%] mb-2">
-                     <div class="text-gray-500 border rounded-md w-[100%] px-[10px] py-[6px]">Option 1</div>
-                 </div>
+            <!-- queation  -->
+            <div class="question question-text text-gray-500 mb-2 w-[100%] font-bold mt-2">
+               Question [Question Number]
+            </div>
+            <!-- opton answer  -->
+            <div class="mt-4 question-divs">
+                 <div class="options text-gray-500 border rounded-md w-[100%] px-[10px] py-[6px] w-[100%] mb-2" id="option1" onclick="CheckAnswer(this)">imran</div>
+                 <div class="options text-gray-500 border rounded-md w-[100%] px-[10px] py-[6px] w-[100%] mb-2" id="option2" onclick="CheckAnswer(this)">ijaz</div>
+                 <div class="options text-gray-500 border rounded-md w-[100%] px-[10px] py-[6px] w-[100%] mb-2" id="option3" onclick="CheckAnswer(this)">sajjad</div>
+                 <div class="options text-gray-500 border rounded-md w-[100%] px-[10px] py-[6px] w-[100%] mb-2" id="option4" onclick="CheckAnswer(this)">kamran</div>
                 
             </div>
              <div class="flex justify-between items-center mt-8">
                  <button class="bg-gray-500 text-white p-2 rounded-md ">Back</button>
-                 <button class="bg-blue-500 text-white p-2 rounded-md">Next</button>
+                 <button class="bg-blue-500 text-white p-2 rounded-md" onclick="NextQuestion()">Next</button>
              </div>
 
          
         </div>
         <!-- result Shiw   -->
-         <div class=" w-[50%] max-[800px]:w-[100%] border border-gray-100 p-5 rounded-lg bg-white shadow-lg">
+         <div class="hidden w-[50%] max-[800px]:w-[100%] border border-gray-100 p-5 rounded-lg bg-white shadow-lg">
              <h1 class="text-xl font-semibold text-gray-700 mb-4">Quiz Result</h1>
              <div class="">
                  <p class="text-gray-500 mb-2 w-[100%]">Total Questions: [Total Questions]</p>
@@ -66,7 +81,34 @@
                  <button class="bg-gray-500 text-white p-2 rounded-md">Restart Quiz</button>
          </div>
     </div>
+    <div
+    class="result flex flex-col w-[40%] max-w-[100%] max-[800px]:w-[100%] p-8 bg-white shadow-md rounded-lg hidden">
+    <h1 class="text-center text-xl font-semibold">Your Result</h1>
+    <div class="flex justify-center items-center mt-8">
+        <div class="box-container">
+            <div class="circle relative">
+                <h1
+                    class="text-3xl font-bold score-text absolute top-[40%] left-[40%] transform-[translate(-50%, -50%)] percantages">
+                    0%</h1>
+            </div>
+
+        </div>
+    </div>
+    <div class="score-fotter">
+        <h2 class="text-lg font-bold my-3">Your Score : <span id="score"></span></h2>
+        <h2 class="text-lg font-bold my-3 show-question"> </h2>
+        <div class="fail_pass">
+            <h2 class="text-lg font-bold my-3 failsShow">You Failed</h2>
+        </div>
+        <button id="submitBtn"
+            class="w-full bg-blue-500 text-white font-bold py-2 rounded-md hover:bg-blue-600 transition-all duration-300"
+            onclick="RestartQuiz()">Restart Quiz</button>
+    </div>
 </div>
+
+
+</div>
+<script src="app.js"></script>
 
     
 </body>
