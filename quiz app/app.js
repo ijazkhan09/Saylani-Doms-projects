@@ -200,7 +200,7 @@ var questions = [
           a: 'var myVariable = "Hello"',
           b: 'let myVariable = "Hello"',
           c: 'const myVariable = "Hello"',
-          d: 'var myVariable = "Hello"',
+          d: 'var myVariable = "Hello ',
         },
         answer: 'var myVariable = "Hello"',
     },
