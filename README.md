@@ -5,6 +5,8 @@
 </head>
 <body>
     <h1>Preview</h1>
+    <h3>Calculator Typescript web app Preview</h3>
+    <p>https://ijaz-typescript-calculator.netlify.app</p>
     <h3>Daraz web app Preview</h3>
     <p>https://ijaz-daraz-app.netlify.app</p>
     <h3>Calculator Preview</h3>
